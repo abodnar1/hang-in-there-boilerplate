@@ -1,12 +1,21 @@
 // query selector variables go here 👇
 
+// Variables for our three main pages - main poster page, create own poster form, & saved posters
+var posterMain = document.querySelector(".main-poster");
+var posterForm = document.querySelector(".poster-form hidden");
+var postersSaved = document.querySelector(".saved-posters hidden");
+
+// Variables specific to main poster page
 var posterImage = document.querySelector(".poster-img");
-
 var posterTitle = document.querySelector(".poster-title");
-
 var posterQuote = document.querySelector(".poster-quote");
 
-var button = document.querySelector(".show-random");
+// Variables specific to buttons
+var showRandomButton = document.querySelector(".show-random");
+var showFormButton = document.querySelector(".show-form");
+
+
+
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -109,10 +118,14 @@ var quotes = [
 var savedPosters = [];
 var currentPoster;
 
+
+
 // event listeners go here 👇
 window.addEventListener("load", showRandom);
+showRandomButton.addEventListener("click", showRandom);
+showFormButton.addEventListener("click", makeOwnPoster, showForm);
 
-button.addEventListener("click", showRandom);
+
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -121,11 +134,21 @@ button.addEventListener("click", showRandom);
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-// function above returns the index position #
 
-
+// Function to click on "Show Another Random Poster"
 function showRandom () {
   posterTitle.innerText = titles[getRandomIndex(titles)]
   posterQuote.innerText = quotes[getRandomIndex(quotes)]
   posterImage.src = images[getRandomIndex(images)];
-}
+};
+
+
+// Function to hide our Main Poster Page
+function makeOwnPoster () {
+    posterMain.classList.add("hidden")
+};
+
+// Function to make visible our Create Poster Form page
+function showForm() {
+  posterForm.classList.remove("hidden")
+};
