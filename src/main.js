@@ -14,7 +14,8 @@ var posterQuote = document.querySelector(".poster-quote");
 var showRandomButton = document.querySelector(".show-random");
 var showFormButton = document.querySelector(".show-form");
 var savedPostersButton = document.querySelector(".show-saved");
-
+var nevermindTakeMeButton = document.querySelector(".show-main")
+var backToMainButton = document.querySelector(".back-to-main");
 
 
 // we've provided you with some data to work with 👇
@@ -125,8 +126,8 @@ window.addEventListener("load", showRandom);
 showRandomButton.addEventListener("click", showRandom);
 showFormButton.addEventListener("click", makeOwnPoster);
 savedPostersButton.addEventListener("click", showSaved);
-
-
+nevermindTakeMeButton.addEventListener("click", mainPage)
+backToMainButton.addEventListener("click", mainPage);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -166,4 +167,7 @@ function hidePosterForm() {
   posterForm.classList.add("hidden")
 };
 
-console.log(hidePosterForm);
+function mainPage() {
+  posterMain.classList.remove("hidden");
+  hidePosterForm();
+}
