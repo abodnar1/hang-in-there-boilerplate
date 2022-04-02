@@ -10,12 +10,26 @@ var posterImage = document.querySelector(".poster-img");
 var posterTitle = document.querySelector(".poster-title");
 var posterQuote = document.querySelector(".poster-quote");
 
+
+// Variables for Create Own Poster
+var createOwnTitle = document.querySelector("#poster-title");
+var createOwnQuote = document.querySelector("#poster-quote");
+var createOwnUrl = document.querySelector("#poster-image-url");
+
+
+
+
+
 // Variables specific to buttons
 var showRandomButton = document.querySelector(".show-random");
 var showFormButton = document.querySelector(".show-form");
 var savedPostersButton = document.querySelector(".show-saved");
 var nevermindTakeMeButton = document.querySelector(".show-main")
 var backToMainButton = document.querySelector(".back-to-main");
+var showMyPosterButton = document.querySelector(".make-poster");
+
+
+
 
 
 // we've provided you with some data to work with 👇
@@ -128,6 +142,11 @@ showFormButton.addEventListener("click", makeOwnPoster);
 savedPostersButton.addEventListener("click", showSaved);
 nevermindTakeMeButton.addEventListener("click", mainPage)
 backToMainButton.addEventListener("click", mainPage);
+showMyPosterButton.addEventListener("click", showMyPoster);
+
+
+
+
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -171,3 +190,15 @@ function mainPage() {
   posterMain.classList.remove("hidden");
   hidePosterForm();
 }
+
+
+function makeNewInstance() {
+  var newPoster
+  createOwnTitle.value = title,
+  createOwnQuote.value = quote,
+  createOwnUrl.value = imageURL,
+}
+
+
+// need three functions that allow us to push the user img, title, quote into the array
+// can we nest them into 1 function?
