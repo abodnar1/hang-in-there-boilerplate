@@ -2,8 +2,8 @@
 
 // Variables for our three main pages - main poster page, create own poster form, & saved posters
 var posterMain = document.querySelector(".main-poster");
-var posterForm = document.querySelector(".poster-form hidden");
-var postersSaved = document.querySelector(".saved-posters hidden");
+var posterForm = document.querySelector(".poster-form");
+var savedPostersPage = document.querySelector(".saved-posters");
 
 // Variables specific to main poster page
 var posterImage = document.querySelector(".poster-img");
@@ -13,7 +13,7 @@ var posterQuote = document.querySelector(".poster-quote");
 // Variables specific to buttons
 var showRandomButton = document.querySelector(".show-random");
 var showFormButton = document.querySelector(".show-form");
-
+var savedPostersButton = document.querySelector(".show-saved");
 
 
 
@@ -123,7 +123,8 @@ var currentPoster;
 // event listeners go here 👇
 window.addEventListener("load", showRandom);
 showRandomButton.addEventListener("click", showRandom);
-showFormButton.addEventListener("click", makeOwnPoster, showForm);
+showFormButton.addEventListener("click", makeOwnPoster);
+savedPostersButton.addEventListener("click", showSaved);
 
 
 
@@ -145,10 +146,24 @@ function showRandom () {
 
 // Function to hide our Main Poster Page
 function makeOwnPoster () {
-    posterMain.classList.add("hidden")
-};
+    posterMain.classList.add("hidden");
+    showForm();
+}
+// take me to the saved posters page.  Commented out as it is not fully
+// functional, but it is close to being done.
+function showSaved () {
+  savedPostersPage.classList.remove("hidden");
+  makeOwnPoster();
+  hidePosterForm();
+}
 
 // Function to make visible our Create Poster Form page
 function showForm() {
   posterForm.classList.remove("hidden")
 };
+
+function hidePosterForm() {
+  posterForm.classList.add("hidden")
+};
+
+console.log(hidePosterForm);
