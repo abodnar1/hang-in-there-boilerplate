@@ -25,8 +25,6 @@ var backToMainButton = document.querySelector(".back-to-main");
 var showMyPosterButton = document.querySelector(".make-poster");
 var saveArtButton = document.querySelector(".save-poster");
 
-
-
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -128,8 +126,6 @@ var quotes = [
 var savedPosters = [];
 var currentPoster;
 
-
-
 // event listeners go here 👇
 window.addEventListener("load", generateRandomPoster);
 showRandomButton.addEventListener("click", generateRandomPoster);
@@ -140,12 +136,11 @@ backToMainButton.addEventListener("click", mainPage);
 showMyPosterButton.addEventListener("click", showMyPoster);
 saveArtButton.addEventListener("click", saveMyCreation);
 
-
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
-}
+};
 
 // Function to click on "Show Another Random Poster"
 function generateRandomPoster() {
@@ -161,7 +156,7 @@ function showRandom() {
   posterImage.src = currentPoster.imageURL;
 };
 
-// Function to show the poster created by the user's inputs
+// Function to show the poster created by the user's inputs and save them to the respective arrays
 function showMyPoster() {
   currentPoster.imageURL = createOwnUrl.value;
   currentPoster.title = createOwnTitle.value;
@@ -187,10 +182,10 @@ function resetForm() {
   createOwnUrl.value = "";
 };
 
-
 // Function to hide our Main Poster Page and show the form to Make Own Poster
 function makeOwnPoster() {
   posterMain.classList.add("hidden");
+
   showForm();
 };
 
@@ -202,9 +197,10 @@ function showForm() {
 // Function to show saved posters and hide Make Own Poster and Main Page
 function showSaved() {
   savedPostersPage.classList.remove("hidden");
+
   makeOwnPoster();
   hidePosterForm();
-  savedGrid()
+  savedGrid();
 };
 
 // Function to hide saved posters
@@ -212,36 +208,34 @@ function hideShowSaved() {
   savedPostersPage.classList.add("hidden");
 };
 
-
 // Function to hide make own poster page
 function hidePosterForm() {
   posterForm.classList.add("hidden");
 };
 
-
 // Function to show main page and hide make own poster page and show saved posters
 function mainPage() {
   posterMain.classList.remove("hidden");
+
   hidePosterForm();
   hideShowSaved();
 };
 
-// Function to save poster
+// Function to save any poster
 function saveMyCreation() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.push(currentPoster);
     }
+  };
 
-  }
-
+// Function to make image thumbnail visible on saved posters page
 function savedGrid() {
-
   for (var i = 0; i < savedPosters.length; i++) {
     savedPostersGrid.innerHTML +=
     `<article class="mini-poster">
       <img src="${savedPosters[i].imageURL}" alt="nothin' to see here">
       <h2>${savedPosters[i].title}</h1>
       <h4>${savedPosters[i].quote}</h3>
-    </article>`
+    </article>`;
   }
-}
+};
