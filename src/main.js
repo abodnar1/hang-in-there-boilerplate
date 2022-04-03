@@ -22,6 +22,7 @@ var savedPostersButton = document.querySelector(".show-saved");
 var nevermindTakeMeButton = document.querySelector(".show-main");
 var backToMainButton = document.querySelector(".back-to-main");
 var showMyPosterButton = document.querySelector(".make-poster");
+var saveArtButton = document.querySelector(".save-poster");
 
 
 
@@ -136,7 +137,7 @@ savedPostersButton.addEventListener("click", showSaved);
 nevermindTakeMeButton.addEventListener("click", mainPage);
 backToMainButton.addEventListener("click", mainPage);
 showMyPosterButton.addEventListener("click", showMyPoster);
-
+saveArtButton.addEventListener("click", saveMyCreation);
 
 
 // functions and event handlers go here 👇
@@ -218,3 +219,10 @@ function mainPage() {
   hidePosterForm();
   hideShowSaved();
 };
+
+// Function to save poster
+function saveMyCreation () {
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.push(currentPoster);
+    }
+  }
