@@ -10,25 +10,18 @@ var posterImage = document.querySelector(".poster-img");
 var posterTitle = document.querySelector(".poster-title");
 var posterQuote = document.querySelector(".poster-quote");
 
-
 // Variables for Create Own Poster
 var createOwnTitle = document.querySelector("#poster-title");
 var createOwnQuote = document.querySelector("#poster-quote");
 var createOwnUrl = document.querySelector("#poster-image-url");
 
-
-
-
-
 // Variables specific to buttons
 var showRandomButton = document.querySelector(".show-random");
 var showFormButton = document.querySelector(".show-form");
 var savedPostersButton = document.querySelector(".show-saved");
-var nevermindTakeMeButton = document.querySelector(".show-main")
+var nevermindTakeMeButton = document.querySelector(".show-main");
 var backToMainButton = document.querySelector(".back-to-main");
 var showMyPosterButton = document.querySelector(".make-poster");
-
-
 
 
 
@@ -136,69 +129,92 @@ var currentPoster;
 
 
 // event listeners go here 👇
-window.addEventListener("load", showRandom);
-showRandomButton.addEventListener("click", showRandom);
+window.addEventListener("load", generateRandomPoster);
+showRandomButton.addEventListener("click", generateRandomPoster);
 showFormButton.addEventListener("click", makeOwnPoster);
 savedPostersButton.addEventListener("click", showSaved);
-nevermindTakeMeButton.addEventListener("click", mainPage)
+nevermindTakeMeButton.addEventListener("click", mainPage);
 backToMainButton.addEventListener("click", mainPage);
 showMyPosterButton.addEventListener("click", showMyPoster);
 
 
 
-
-
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
-
-//The function for a random title. Currently returning index position #
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
 // Function to click on "Show Another Random Poster"
-function showRandom () {
-  posterTitle.innerText = titles[getRandomIndex(titles)]
-  posterQuote.innerText = quotes[getRandomIndex(quotes)]
-  posterImage.src = images[getRandomIndex(images)];
+function generateRandomPoster() {
+  currentPoster = new Poster(images[getRandomIndex(images)], titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
+
+  showRandom();
+};
+
+// Function generates a new random poster when show random button is clicked
+function showRandom() {
+  posterTitle.innerText = currentPoster.title;
+  posterQuote.innerText = currentPoster.quote;
+  posterImage.src = currentPoster.imageURL;
+};
+
+// Function to show the poster created by the user's inputs
+function showMyPoster() {
+  posterTitle.innerText = createOwnTitle.value;
+  posterQuote.innerText = createOwnQuote.value;
+  posterImage.src = createOwnUrl.value;
+  event.preventDefault();
+
+  titles.push(createOwnTitle.value);
+  quotes.push(createOwnQuote.value);
+  images.push(createOwnUrl.value);
+
+  mainPage();
+  resetForm();
+};
+
+// Function to clear user input values on make own poster pages
+function resetForm() {
+  createOwnTitle.value = "";
+  createOwnQuote.value = "";
+  createOwnUrl.value = "";
 };
 
 
-// Function to hide our Main Poster Page
-function makeOwnPoster () {
-    posterMain.classList.add("hidden");
-    showForm();
-}
-// take me to the saved posters page.  Commented out as it is not fully
-// functional, but it is close to being done.
-function showSaved () {
+// Function to hide our Main Poster Page and show the form to Make Own Poster
+function makeOwnPoster() {
+  posterMain.classList.add("hidden");
+  showForm();
+};
+
+// Function to make visible Make Own Poster page
+function showForm() {
+  posterForm.classList.remove("hidden");
+};
+
+// Function to show saved posters and hide Make Own Poster and Main Page
+function showSaved() {
   savedPostersPage.classList.remove("hidden");
   makeOwnPoster();
   hidePosterForm();
-}
-
-// Function to make visible our Create Poster Form page
-function showForm() {
-  posterForm.classList.remove("hidden")
 };
 
+// Function to hide saved posters
+function hideShowSaved() {
+  savedPostersPage.classList.add("hidden");
+};
+
+
+// Function to hide make own poster page
 function hidePosterForm() {
-  posterForm.classList.add("hidden")
+  posterForm.classList.add("hidden");
 };
 
+
+// Function to show main page and hide make own poster page and show saved posters
 function mainPage() {
   posterMain.classList.remove("hidden");
   hidePosterForm();
-}
-
-
-function makeNewInstance() {
-  var newPoster
-  createOwnTitle.value = title,
-  createOwnQuote.value = quote,
-  createOwnUrl.value = imageURL,
-}
-
-
-// need three functions that allow us to push the user img, title, quote into the array
-// can we nest them into 1 function?
+  hideShowSaved();
+};
