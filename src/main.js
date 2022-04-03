@@ -162,6 +162,10 @@ function showRandom() {
 
 // Function to show the poster created by the user's inputs
 function showMyPoster() {
+  currentPoster.imageURL = createOwnUrl.value;
+  currentPoster.title = createOwnTitle.value;
+  currentPoster.quote = createOwnQuote.value;
+
   posterTitle.innerText = createOwnTitle.value;
   posterQuote.innerText = createOwnQuote.value;
   posterImage.src = createOwnUrl.value;
