@@ -222,5 +222,7 @@ function mainPage() {
 
 // Function to save poster
 function saveMyCreation () {
-  savedPosters.push(currentPoster)
-}
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.push(currentPoster);
+    }
+  }
