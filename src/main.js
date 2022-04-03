@@ -4,6 +4,7 @@
 var posterMain = document.querySelector(".main-poster");
 var posterForm = document.querySelector(".poster-form");
 var savedPostersPage = document.querySelector(".saved-posters");
+var savedPostersGrid = document.querySelector(".saved-posters-grid");
 
 // Variables specific to main poster page
 var posterImage = document.querySelector(".poster-img");
@@ -199,6 +200,7 @@ function showSaved() {
   savedPostersPage.classList.remove("hidden");
   makeOwnPoster();
   hidePosterForm();
+  savedGrid()
 };
 
 // Function to hide saved posters
@@ -221,8 +223,21 @@ function mainPage() {
 };
 
 // Function to save poster
-function saveMyCreation () {
+function saveMyCreation() {
   if (!savedPosters.includes(currentPoster)) {
     savedPosters.push(currentPoster);
     }
+
   }
+
+function savedGrid() {
+
+  for (var i = 0; i < savedPosters.length; i++) {
+    savedPostersGrid.innerHTML +=
+    `<article class="mini-poster">
+      <img src="${savedPosters[i].imageURL}" alt="nothin' to see here">
+      <h2>${savedPosters[i].title}</h1>
+      <h4>${savedPosters[i].quote}</h3>
+    </article>`
+  }
+}
