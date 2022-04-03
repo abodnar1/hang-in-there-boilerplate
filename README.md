@@ -1,18 +1,25 @@
 # Hang In There
 
-A boilerplate repo. 
+**Contributors:**
+* Andrew Miller
+* Amber Bodnar
 
-## Set Up
+**Project Manager:**
+* Cassandra Torske
 
-1. One teammate: fork this repository
-2. Clone down your new, forked repo
-3. cd into the repository
-4. Open it in your text editor
-5. Add all project partners and your assigned instructor as collaborators on the repository
+## Abstract
+Following a rubric, we added functionality to a website using JavaScript to interact with HTML and CSS.  The project shows randomized motivational posters using data from a set of given arrays; it allows the user to create their own motivational poster; and has a page that stores saved posters and displays them as thumbnails in a grid. 
 
-Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html)
+## Wins
+* Followed all pull-requests templates
+* Gained more familiarity with the Git workflow process
+* Set time boundaries and utilized pom breaks
+* We reached out to mentors, rocks, and fellow cohort mates to collaborate
+* Communication was clear
+* Remained patient and kind with each other even through the most stressful moments
 
-To view your project:
-
-1. In your terminal, navigate to your project repo
-2. Run the command `open index.html`
+## Challenges
+* Time zone was an extra obstacle, but it allowed us to collaborate intentionally and solo-study when needed
+* Difficult navigating the project when resources (mentors, rocks, and peers) were tapped
+* Tuple felt isolating at times when help was needed, and switching between that and the Zoom Study Hall became tidious
+* Adapting to program time demands
