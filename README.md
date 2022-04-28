@@ -23,3 +23,6 @@ Following a rubric, we added functionality to a website using JavaScript to inte
 * Difficult navigating the project when resources (mentors, rocks, and peers) were tapped
 * Tuple felt isolating at times when help was needed, and switching between that and the Zoom Study Hall became tidious
 * Adapting to program time demands
+
+## Deployed Page 
+The deployed page can be found [here[(https://abodnar1.github.io/hang-in-there-motivation/).
